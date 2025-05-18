@@ -1,0 +1,16 @@
+version: "3.9"
+
+
+services:
+  devcontainer:
+    container_name: devcontainer-${APP_NAME}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspaces:cached
+      - ~/.ssh:/home/vscode/.ssh:ro
+    command: sleep infinity
+    ports:
+      - 8000:8000
+      - 5678:5678
